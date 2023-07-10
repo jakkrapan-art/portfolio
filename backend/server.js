@@ -1,9 +1,14 @@
 import express from "express";
 import cors from "cors";
 import mysql from "mysql";
+
+import Storage from "./src/storage.js"
+
 const app = express();
 
 const PORT = process.env.PORT | 3001
+
+let storage;
 
 const connection = mysql.createConnection(
   {
@@ -43,18 +48,23 @@ app.post("/projects/create", (req, res)=>{
   )
 })
 
+app.get("/projects", (req, res) => 
+{
+  storage.insert("project", {name: "test", description:"desc", type: "type", image: "img", url: "url", start:"2023-7-10"}, (err, insert_id) => 
+  {
+    if(err)
+    {
+      console.log(err);
+      return;
+    }
+
+    console.log(result_id);
+  });
+  return res.status(200).send();
+})
+
 app.listen(PORT, ()=> 
 {       
   console.log("server is running on port", PORT);
-
-  connection.connect(err => 
-    {
-      if(err)
-      {
-        console.log("an error occurs:", err);
-        return;
-      }
-
-      console.log("database connected.");
-    });
+  storage = new Storage();
 })
