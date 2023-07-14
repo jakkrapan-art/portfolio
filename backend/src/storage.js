@@ -25,7 +25,7 @@ class Storage
       });
   }
 
-  insert(table, insertingObj, callback)
+  insert(table, data, callback)
   {
     if(table.trim() === "")
     {
@@ -34,26 +34,23 @@ class Storage
     }
 
     try{
-      const insertingMap = Object.entries(insertingObj);
-      const keys = [];
-      const values = [];
-      for(const v of insertingMap.values())
-      {
-        keys.push("`"+v[0]+"`");
-        values.push("'"+v[1]+"'");
-      }
+      const keys = Object.keys(data);
+      const values = Object.values(data);
       
-      const query = "INSERT INTO " + table + " (" + keys.join(", ") + ") VALUES (" + values.join(", ") + ");";
-      connection.query(query, (err, result)=>
+      return new Promise((resolve, reject)=>
       {
-        if(err)
+        const query = "INSERT INTO " + table + " (" + keys.join(", ") + ") VALUES (" + values.join(", ") + ");";
+        connection.query(query, (err, result)=>
         {
-          callback(err);
-          return;
-        }
-
-        callback(null, result.insertId)
-      });
+          if(err)
+          {
+            reject(err);
+            return;
+          }
+  
+          resolve(result);
+        });
+      })
     }
     catch(err)
     {
@@ -63,7 +60,24 @@ class Storage
 
   delete(table, condition)
   {
-    connection.query("DELETE FROM " + table + (condition ? (" WHERE " + condition) : ""));
+    if(!condition) return;
+
+    connection.query("DELETE FROM " + table + " WHERE " + condition);
+  }
+
+  query(query, args = [])
+  {
+    if(connection) return;
+
+    return new Promise((resolve, reject) => 
+    {
+      connection.query(query, args, (err, result) => 
+      {
+        if(err) reject(err);
+
+        resolve(result);
+      });
+    });
   }
 }
 
