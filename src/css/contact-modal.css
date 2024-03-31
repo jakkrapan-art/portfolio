@@ -12,7 +12,7 @@
 
 .modal {
   background-color: white;
-  width: 500px;
+  width: 350px;
   padding: 10px 30px;
   border-radius: 25px;
   position: relative;
@@ -41,14 +41,14 @@
 .close-button {
   position: absolute;
   font-family: Arial, Helvetica, sans-serif;
-  top: -50px;
-  right: -50px;
+  top: 0px;
+  right: 12.5px;
   cursor: pointer;
   color: black;
-  font-size: 50px;
+  font-size: 35px;
 }
 
 .close-button:hover
 {
-  color: white;
+  color: red;
 }
