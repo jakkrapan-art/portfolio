@@ -1,0 +1,10 @@
+current:
+  organization: Debuz Company Limited
+  start: "2022-06-16"
+  position: Game Developer (Unity)
+  detail:
+    - Develop and Maintainance Game client using Unity and C# for scripting.
+    - Develop Game client using Phaser.
+    - Develop and Maintainance Game server using TypeScript, Lua.
+    - Develop tool for admin to help team can work more efficiently using JavaScript, TypeScript.
+other: []
