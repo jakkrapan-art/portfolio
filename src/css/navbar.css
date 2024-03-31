@@ -164,15 +164,21 @@
   .nav-item .toggle-btn
   {
     width: 100vw;
-    height: 30px;
+    height: 35px;
     display: flex;
 
+    font-size: 24px;
+    font-weight: 120;
+
     position: absolute;
-    bottom: -30px;
+    bottom: -35px;
     align-items: center;
     justify-content: center;
 
-    background-color: red;
+    background-color: #c3dcec;
+
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
   }
 
   .nav-item:first-child

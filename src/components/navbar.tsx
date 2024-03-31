@@ -51,7 +51,7 @@ function NavBar() {
         </div>
       )}
       <div className="nav-item">
-        <input type="button" className='toggle-btn' value={isNavbarShowing ? "close" : "open"} onClick={toggleNavbar} ref={buttonRef}/>
+        <input type="button" className='toggle-btn' value={isNavbarShowing ? "Hide Menu" : "Show Menu"} onClick={toggleNavbar} ref={buttonRef}/>
       </div>
       {isContactModalOpen && <ContactModal isOpen={isContactModalOpen} onClose={closeContactModal} />}
     </div>
