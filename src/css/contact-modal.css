@@ -1,0 +1,54 @@
+.modal-overlay {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(25, 25, 25, 0.5);
+  /* z-index: 2; */
+  position: fixed;
+  display: flex;
+  top: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal {
+  background-color: white;
+  width: 500px;
+  padding: 10px 30px;
+  border-radius: 25px;
+  position: relative;
+  transform: translateY(-100%);
+  opacity: 0;
+  animation: slideIn 0.3s forwards;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.modal-header {
+  font-size: 25px;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+.close-button {
+  position: absolute;
+  font-family: Arial, Helvetica, sans-serif;
+  top: -50px;
+  right: -50px;
+  cursor: pointer;
+  color: black;
+  font-size: 50px;
+}
+
+.close-button:hover
+{
+  color: white;
+}

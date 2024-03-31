@@ -1,0 +1,190 @@
+:root
+{
+  --is-small-width-window: false;
+}
+
+.navbar {
+  width: 100%;
+  height: var(--navbar-height);
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: transform 0.3s ease-out, height 0.3s ease;
+  z-index: 1;
+
+  background-color: #53bdff;
+}
+
+.navbar.hidden {
+  height: 0;
+}
+
+.navbar-content {
+  background-color: rgba(0, 0, 0, 0);
+  height: 100%;
+  transition: transform 0.3s ease-out;
+  display: flex;
+  align-items: center;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.navbar:hover .navbar-content {
+  top: 0;
+}
+
+.navbar-list
+{
+  height: 100%;
+  list-style: none;
+  display: flex;
+  position: absolute;
+  align-items: center;
+  right: 0;
+}
+
+.nav-item
+{
+  margin-right: 30px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.navbar-button-parent .nav-item
+{
+  margin-left: 15;
+}
+
+.nav-item a, .nav-item .clickable
+{
+  transition: font-size 0.15s ease-in-out;
+}
+
+.nav-item a:hover, .nav-item .clickable:hover
+{
+  font-size: 26px;
+  cursor: pointer;
+}
+
+.nav-item .clickable:hover
+{
+  color: white;
+}
+
+.nav-item a img
+{
+  width: 48px;
+  height: 48px;
+}
+
+.navbar-item:last-child
+{
+  margin-right: 0px;
+}
+
+.nav-item .toggle-btn
+{
+  display: none;
+}
+
+.navbar-theme-btn
+{
+  position: absolute;
+  right: 0;
+
+  margin-right: 20px;
+
+  width: 60px;
+  height: 60px;
+
+  opacity: 20%;
+  transition: width 0.3s ease-out, height 0.3s ease;
+}
+
+.navbar-theme-btn input
+{
+  width: 100%;
+  height: 100%;
+
+  transition: opacity 0.05s ease-out;
+}
+
+.navbar-theme-btn input + .dark
+{
+  opacity: 0%;
+}
+
+.navbar-theme-btn input + .light
+{
+  opacity: 100%;
+}
+
+.navbar-theme-btn:checked input + .dark
+{
+  opacity: 100%;
+}
+
+.navbar-theme-btn:checked input + .light
+{
+  opacity: 0%;
+}
+
+@media (width < 768px)
+{
+  :root
+  {
+    --is-small-width-window: true;
+  }
+
+  .navbar-content
+  {
+    display: block;
+    padding: 0;
+    height: 100%;
+  }
+
+  .navbar-list {
+    display: flex;
+    justify-content: center;
+    vertical-align: middle;
+    width: 100vw;
+    position: relative;
+    flex-direction: column;
+    padding: 0;
+    margin: 15px 0 0 0;
+  }
+
+  .nav-item
+  {
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .nav-item .toggle-btn
+  {
+    width: 100vw;
+    height: 30px;
+    display: flex;
+
+    position: absolute;
+    bottom: -30px;
+    align-items: center;
+    justify-content: center;
+
+    background-color: red;
+  }
+
+  .nav-item:first-child
+  {
+    margin-top: 0px;
+  }
+
+  .navbar-theme-btn
+  {
+    top: 0;
+    margin-top: 20px;
+    width: 45px;
+    height: 45px;
+  }
+}

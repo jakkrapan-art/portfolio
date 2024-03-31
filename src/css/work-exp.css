@@ -1,0 +1,75 @@
+.work-experience {
+  width: 100%;
+}
+
+.content {
+  margin-top: -25px;
+  overflow: hidden;
+  transition: height 0.25s ease;
+}
+
+.short-content, .full-content {
+  display: block;
+  width: 100%;
+  height: auto;
+
+  padding: 10px;
+}
+
+.content .expand-btn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.expand-btn input {
+  border-radius: 10px;
+  border-width: 3px;
+
+  width: 95%;
+  height: 35px;
+
+  font-size: larger;
+  font-weight: bold;
+}
+
+.expand-btn.hide
+{
+  display: none;
+}
+
+.header {
+  display: flex;
+  margin-bottom: 0px;
+}
+
+.toggle-btn
+{
+  width: 100%;
+}
+
+.work-organization
+{
+  font-size: medium;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.work-detail .header
+{
+  font-size: medium;
+  font-weight: bold;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.work-detail-item
+{
+  margin-bottom: 5px;
+}
+
+.work-detail-item:last-child
+{
+  margin-bottom: 0;
+}
