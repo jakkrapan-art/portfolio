@@ -12,9 +12,10 @@ jobs:
       # Checkout
       - name: Checkout repository
         uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v2
         with:
-          lfs: true
-
+          node-version: 18.6
       # Test
       - name: Run tests
         run: npm run test
