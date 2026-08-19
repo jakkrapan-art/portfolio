@@ -5,65 +5,68 @@ import { useEffect, useRef, useState } from 'react';
 import yaml from 'js-yaml';
 import ProjectDetailModal, { ProjectDetail } from './project-detail-modal';
 
+export type ThumbnailClick =
+  | { type: 'modal' }
+  | { type: 'link'; url: string };
+
 export interface ProjectThumbnailData {
   id: number;
   title: string;
   image: string;
   pageUrl?: string;
+  click?: ThumbnailClick;
   engine: string;
 }
 
-const ProjectThumbnail: React.FC<ProjectThumbnailData & { onClick?: (id:number) => void }> = ({ id, title, image, pageUrl, engine, onClick }) => {
+export const ProjectThumbnail: React.FC<ProjectThumbnailData & { onClick?: (id:number) => void }> = ({ id, title, image, pageUrl, click, engine, onClick }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isError, setIsError] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
 
   const imageUrl = "./project-thumbnails/" + image;
+  const resolvedClick: ThumbnailClick = click ?? (pageUrl ? { type: 'link', url: pageUrl } : { type: 'modal' });
 
   useEffect(() => {
+    const img = imgRef.current;
+    if (!img) return;
+
+    const setImageState = () => {
+      img.src = imageUrl;
+      img.onload = () => setIsLoaded(true);
+      img.onerror = () => setIsError(true);
+    };
+
+    if (typeof IntersectionObserver === 'undefined') {
+      setImageState();
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          const img = imgRef.current;
-          if (img) {
-            img.src = imageUrl;
-            img.onload = () => setIsLoaded(true);
-            img.onerror = () => setIsError(true);
-          }
+          setImageState();
           observer.disconnect();
         }
       },
       { threshold: 0.5 }
     );
 
-    observer.observe(imgRef.current!);
+    observer.observe(img);
 
     return () => {
-      if (imgRef.current) {
-        observer.unobserve(imgRef.current);
-      }
+      observer.disconnect();
     };
   }, [image, imageUrl]);
 
-  // If an onClick handler is provided, use it to open the modal instead of navigating
-  if (onClick) {
-    return (
-      <div className="project-thumbnail-wrapper" onClick={() => onClick(id)} role="button" tabIndex={0}>
-        <div className="project-thumbnail">
-          <div className="thumbnail-placeholder" style={{ display: isLoaded ? 'none' : 'block' }}></div>
-          <img ref={imgRef} src={imageUrl} alt={title} style={{ display: isError ? 'none' : 'block' }} />
-        </div>
-        <div className="project-engine">
-          <img src={"./files/icons/" + engine + ".png"} alt={engine} className="project-engine-image" />
-        </div>
-        <h3 className="thumbnail-name">{title}</h3>
-      </div>
-    );
-  }
+  const handlePrimaryClick = () => {
+    if (resolvedClick.type === 'modal' && onClick) {
+      onClick(id);
+    }
+  };
 
-  if (pageUrl) {
+  if (resolvedClick.type === 'link') {
     return (
-      <a href={pageUrl} target='_blank' rel='noreferrer'>
+      <a href={resolvedClick.url} target='_blank' rel='noreferrer' className="project-thumbnail-link">
         <div className="project-thumbnail">
           <div className="thumbnail-placeholder" style={{ display: isLoaded ? 'none' : 'block' }}></div>
           <img ref={imgRef} src={imageUrl} alt={title} style={{ display: isError ? 'none' : 'block' }} />
@@ -77,13 +80,21 @@ const ProjectThumbnail: React.FC<ProjectThumbnailData & { onClick?: (id:number) 
   }
 
   return (
-    <Link to={`/projects/${id}`}>
+    <div className="project-thumbnail-wrapper" onClick={handlePrimaryClick} onKeyDown={(event) => {
+      if ((event.key === 'Enter' || event.key === ' ') && resolvedClick.type === 'modal') {
+        event.preventDefault();
+        handlePrimaryClick();
+      }
+    }} role="button" tabIndex={0}>
       <div className="project-thumbnail">
         <div className="thumbnail-placeholder" style={{ display: isLoaded ? 'none' : 'block' }}></div>
         <img ref={imgRef} src={imageUrl} alt={title} style={{ display: isError ? 'none' : 'block' }} />
       </div>
+      <div className="project-engine">
+        <img src={"./files/icons/" + engine + ".png"} alt={engine} className="project-engine-image" />
+      </div>
       <h3 className="thumbnail-name">{title}</h3>
-    </Link>
+    </div>
   );
 };
 
@@ -137,7 +148,16 @@ const ProjectShowcase = () => {
       </div>
       <div className="thumbnails-container">
         {projects.map(project => (
-          <ProjectThumbnail key={project.id} id={project.id} image={project.image} title={project.title} pageUrl={project.pageUrl} engine={project.engine} onClick={openProjectModal} />
+          <ProjectThumbnail
+            key={project.id}
+            id={project.id}
+            image={project.image}
+            title={project.title}
+            pageUrl={project.pageUrl}
+            click={project.click ?? (project.pageUrl ? { type: 'link', url: project.pageUrl } : { type: 'modal' })}
+            engine={project.engine}
+            onClick={openProjectModal}
+          />
         ))}
       </div>
 

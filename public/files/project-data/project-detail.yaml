@@ -1,66 +1,57 @@
- - id: 1
-   project_name: "Dungeon Escapist"
-   displays:
-     - path: "project-data/dungeon_escapist_01.png"
-       type: "image"
-     - path: "project-data/dungeon_escapist_trailer.mp4"
-       type: "video"
-  #  play_url: "https://seniorproject.sit.kmutt.ac.th/showproject/IT61-BU07"
-   image:
-     showing: "project-data/dungeon_escapist_01.png"
-     all:
-       - "project-data/dungeon_escapist_01.png"
-       - "project-data/dungeon_escapist_02.png"
-   description: "A top-down puzzle-adventure where players escape procedurally generated dungeons."
-   my_responsibility:
-     - "Designed core level progression"
-     - "Implemented enemy AI behavior"
-     - "Created UI and HUD"
+- id: 1
+  project_name: "Dungeon Escapist"
+  displays:
+  - path: "https://www.youtube.com/watch?v=UdYKGZGvDMY"
+    type: "video"
+  - path: "./files/images/dungeon_escapist/minigame.jpg"
+    type: "image"
+  - path: "./files/images/dungeon_escapist/quick.jpg"
+    type: "image"
+  - path: "./files/images/dungeon_escapist/multiplayer.jpg"
+    type: "image"
+  description: "My thesis project, a multiplayer adventure game that designed like a board game. Players must find the exit of the dungeon while avoiding the traps and versus other players."
+  my_responsibility:
+    - "Designed core game architecture"
+    - "Designed core gameplay mechanics"
+    - "Implemented minigame and quick game system"
+    - "Implemented lobby and multiplayer system"
+    - "Implemented items and inventory system"
 
- - id: 2
-   project_name: "One Min Farmer"
-   displays:
-     - path: "project-data/one_min_farmer_01.png"
-       type: "image"
-     - path: "project-data/one_min_farmer_gameplay.mp4"
-       type: "video"
-   play_url: "https://jakkrapan-art.itch.io/one-min-farm"
-   image:
-     showing: "project-data/one_min_farmer_01.png"
-     all:
-       - "project-data/one_min_farmer_01.png"
-       - "project-data/one_min_farmer_02.png"
-   description: "A bite-sized farming game with time-based challenges and upgrades."
-   my_responsibility:
-     - "Gameplay programming"
-     - "Balance and economy design"
+- id: 2
+  project_name: "One Min Farmer"
+  displays:
+  - path: "./files/images/one_min_farmer/farm-01.png"
+    type: "image"
+  - path: "./files/images/one_min_farmer/farm-tutor.png"
+    type: "image"
+  - path: "./files/images/one_min_farmer/farm-upgrade.png"
+    type: "image"
+  play_url: "https://jakkrapan-art.itch.io/one-min-farm"
+  description: "A mini faming game where players have to manage their farm and resources within a one-minute time limit to pay for the debts."
+  my_responsibility:
+  - "Designed core game mechanics"
+  - "Implemented debt payment system"
+  - "Implemented farm upgrade system"
+  - "Implemented animal and player animation system"
+  - "Animated Player and Animals"
 
- - id: 3
-   project_name: "Village Defender"
-   displays:
-     - path: "project-data/village_defender_01.png"
-       type: "image"
-   play_url: "https://jakkrapan-art.itch.io/village-defender"
-   image:
-     showing: "project-data/village_defender_01.png"
-     all:
-       - "project-data/village_defender_01.png"
-   description: "Tower-defense style game protecting a village from waves of enemies."
-   my_responsibility:
-     - "Wave system implementation"
-     - "Level scripting"
+- id: 3
+  project_name: "Village Defender"
+  displays:
+    - path: "./files/images/village_defender/village-defense.png"
+      type: "image"
+  play_url: "https://jakkrapan-art.itch.io/village-defender"
+  description: "My first jam game with the theme SCALE. A tower defense game where players must defend their village from waves of enemies. and you have to clean up the dead bodies to prevent the boss to SCALE up."
+  my_responsibility:
+    - "Everything of the game, from design to implementation"
 
- - id: 4
-   project_name: "Defeed"
-   displays:
-     - path: "project-data/defeed_01.png"
-       type: "image"
-   play_url: "https://jakkrapan-art.itch.io/bossrush2024/WebGL"
-   image:
-     showing: "project-data/defeed_01.png"
-     all:
-       - "project-data/defeed_01.png"
-   description: "A boss-rush style action game focused on fast-paced combat."
-   my_responsibility:
-     - "Boss design"
-     - "Combat tuning"
+- id: 4
+  project_name: "Defeed"
+  displays:
+    - path: "./files/images/defeed/defeed_01.png"
+      type: "image"
+  play_url: "https://jakkrapan-art.itch.io/bossrush2024/WebGL"
+  description: "A boss-rush style action game focused on fast-paced combat."
+  my_responsibility:
+    - "Boss design"
+    - "Combat tuning"
