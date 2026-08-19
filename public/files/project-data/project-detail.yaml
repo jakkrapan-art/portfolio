@@ -1,0 +1,66 @@
+ - id: 1
+   project_name: "Dungeon Escapist"
+   displays:
+     - path: "project-data/dungeon_escapist_01.png"
+       type: "image"
+     - path: "project-data/dungeon_escapist_trailer.mp4"
+       type: "video"
+  #  play_url: "https://seniorproject.sit.kmutt.ac.th/showproject/IT61-BU07"
+   image:
+     showing: "project-data/dungeon_escapist_01.png"
+     all:
+       - "project-data/dungeon_escapist_01.png"
+       - "project-data/dungeon_escapist_02.png"
+   description: "A top-down puzzle-adventure where players escape procedurally generated dungeons."
+   my_responsibility:
+     - "Designed core level progression"
+     - "Implemented enemy AI behavior"
+     - "Created UI and HUD"
+
+ - id: 2
+   project_name: "One Min Farmer"
+   displays:
+     - path: "project-data/one_min_farmer_01.png"
+       type: "image"
+     - path: "project-data/one_min_farmer_gameplay.mp4"
+       type: "video"
+   play_url: "https://jakkrapan-art.itch.io/one-min-farm"
+   image:
+     showing: "project-data/one_min_farmer_01.png"
+     all:
+       - "project-data/one_min_farmer_01.png"
+       - "project-data/one_min_farmer_02.png"
+   description: "A bite-sized farming game with time-based challenges and upgrades."
+   my_responsibility:
+     - "Gameplay programming"
+     - "Balance and economy design"
+
+ - id: 3
+   project_name: "Village Defender"
+   displays:
+     - path: "project-data/village_defender_01.png"
+       type: "image"
+   play_url: "https://jakkrapan-art.itch.io/village-defender"
+   image:
+     showing: "project-data/village_defender_01.png"
+     all:
+       - "project-data/village_defender_01.png"
+   description: "Tower-defense style game protecting a village from waves of enemies."
+   my_responsibility:
+     - "Wave system implementation"
+     - "Level scripting"
+
+ - id: 4
+   project_name: "Defeed"
+   displays:
+     - path: "project-data/defeed_01.png"
+       type: "image"
+   play_url: "https://jakkrapan-art.itch.io/bossrush2024/WebGL"
+   image:
+     showing: "project-data/defeed_01.png"
+     all:
+       - "project-data/defeed_01.png"
+   description: "A boss-rush style action game focused on fast-paced combat."
+   my_responsibility:
+     - "Boss design"
+     - "Combat tuning"

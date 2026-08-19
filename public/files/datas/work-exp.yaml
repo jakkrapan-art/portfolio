@@ -4,6 +4,7 @@ current:
   position: Game Developer (Unity)
   detail:
     - Develop and Maintainance Game client using Unity and C# for scripting.
+    - Optimization Game client for avoid crash and improve performance.
     - Develop Game client using Phaser.
     - Develop and Maintainance Game server using TypeScript, Lua.
     - Develop tool for admin to help team can work more efficiently using JavaScript, TypeScript.
