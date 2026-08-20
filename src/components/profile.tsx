@@ -1,6 +1,4 @@
 import '../css/profile.css';
-import githubImg from "../images/github.png"
-import linkedinImg from "../images/linkedin.png"
 
 function Profile()
 {

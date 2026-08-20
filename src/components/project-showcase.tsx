@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'; // Assuming you're using React Router for navigation
 import '../css/project-showcase.css';
 import '../css/project-detail-modal.css';
 import { useEffect, useRef, useState } from 'react';
