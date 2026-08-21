@@ -1,0 +1,26 @@
+- id: 1
+  title: "Dungeon Escapist"
+  image: "dungeon_escapist.png"
+  click:
+    type: "modal"
+  engine: unity
+- id: 2
+  title: "One Min Farmer"
+  image: "one_min_farmer.png"
+  click:
+    type: "modal"
+    # url: "https://jakkrapan-art.itch.io/one-min-farm"
+  engine: unity
+- id: 3
+  title: "Village Defender"
+  image: "village_defender.png"
+  click:
+    type: "modal"
+  engine: unity
+- id: 4
+  title: "Defeed"
+  image: "defeed.png"
+  click:
+    type: "link"
+    url: "https://github.com/jakkrapan-art/bossrush2024"
+  engine: unity
