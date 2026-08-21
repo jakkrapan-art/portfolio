@@ -1,4 +1,4 @@
-const goatCounterCode = process.env.REACT_APP_GOATCOUNTER_CODE;
+const goatCounterCode = process.env.REACT_APP_GOATCOUNTER_CODE || 'jakkrapan-art';
 
 export const loadAnalytics = () => {
   if (!goatCounterCode || process.env.NODE_ENV !== 'production') return;
